@@ -1,0 +1,50 @@
+body {
+    text-align: center;
+}
+
+h2 {
+  margin-bottom: 10px;
+}
+
+.counter {
+  position: relative;
+  display: inline-block;
+  bottom: 500px;
+}
+
+.counter#wins {
+  right: 5%;
+}
+
+.counter#losses {
+  left: 5%;
+}
+
+.number {
+  font-size: 24px;
+  font-weight: 400;
+  margin-top: 0px;
+}
+
+.characters {
+  display: flex;
+    justify-content: space-between;
+    max-width: 750px;
+    max-height: 175px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-right: 0px;
+}
+
+.noClick {
+  filter: grayscale(1);
+}
+
+.unlocks {
+  margin: 0px;
+  font-size: 1.2em;
+}
+
+#wins {
+  bottom: 410px;
+}

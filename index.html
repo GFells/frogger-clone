@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Effective JavaScript: Frogger</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="counter" id="wins">
+      <h2>WINS</h2>
+      <p class="number" id="winCount">0</p>
+      <div id="streak">
+        <h2>STREAK</h2>
+        <p class="number" id="streakCount">0</p>
+      </div>
+    </div>
+    <script src="js/resources.js"></script>
+    <script src="js/engine.js"></script>
+    <div class="counter" id="losses">
+      <h2>LOSSES</h2>
+      <p class ="number" id="loseCount">0</p>
+    </div>
+    <div class="selector">
+      <h2>CHANGE YOUR CHARACTER</h2>
+      <div class="characters">
+        <img src="images/char-boy.png" class="canClick" id="char-boy">
+        <img src="images/char-pink-girl.png" class="canClick" id="char-pink-girl">
+        <div>
+          <img src="images/char-cat-girl.png" class="noClick" id="char-cat-girl">
+          <p class="unlocks">10 Wins</p>
+        </div>
+        <div>
+          <img src="images/char-horn-girl.png" class="noClick" id="char-horn-girl">
+          <p class="unlocks">15 Wins</p>
+        </div>
+        <div>
+          <img src="images/char-princess-girl.png" class="noClick" id="char-princess-girl">
+          <p class="unlocks">20 Streak</p>
+        </div>
+      </div>
+      <script src="js/app.js"></script>
+</body>
+</html>
