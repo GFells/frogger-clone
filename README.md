@@ -13,7 +13,7 @@ This is a browser based Frogger-like game.
 
 ## To Run:
 
-1. [Download](https://github.com/GFells/memoryProject/archive/master.zip) or [Clone](https://github.com/GFells/memoryProject.git) the game's files.
+1. [Download](https://github.com/GFells/frogger-clone/archive/master.zip) or [Clone](https://github.com/GFells/frogger-clone.git) the game's files.
 2. Open the 'index.html' file using the browser of your choice. The game will start immediately.
 
 ## Dependencies:
