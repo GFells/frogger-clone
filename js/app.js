@@ -1,4 +1,5 @@
 // Enemies our player must avoid
+// Takes two values to determine enemy placement and speed
 var Enemy = function(y,m) {
     // Variables applied to each of our instances go here,
     // we've provided one for you to get started
@@ -8,6 +9,7 @@ var Enemy = function(y,m) {
     this.sprite = 'images/enemy-bug.png';
     this.x = -100;
     this.y = y;
+    // m is used as a speed modifier for enemy movement
     this.m = m;
 };
 
