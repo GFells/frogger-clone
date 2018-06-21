@@ -48,62 +48,66 @@ Enemy.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
-function PlayerClass() {
+var PlayerClass = function (x,y) {
   // Player starting position
-  this.starting = function() {
-    player.x = 200;
-    player.y = 390;
-  };
+  this.x = x;
+  this.y = y;
   this.wins = 0;
   this.losses = 0;
   this.streak = 0;
   this.sprite = 'images/char-boy.png';
-  // Updates game sprite on click if chosen character is unlocked
-  this.changeChar = function(evt){
-    if (evt.target.className === 'canClick') {
-      player.sprite = 'images/' + evt.target.id + '.png';
-    };
-  }
-  // Sets player back to beginning and updates wins and streaks
-  // upon player reaching the water
-  this.render = function() {
-    ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
-  };
-  this.playerSafe = function() {
-    player.starting();
-    player.wins+=1;
-    player.streak+=1;
-    document.getElementById('streakCount').innerHTML = player.streak;
-    document.getElementById('winCount').innerHTML = player.wins;
-    if (player.wins === 10) {
-      document.getElementById('char-cat-girl').className = "canClick";
-    } else if (player.wins === 15) {
-      document.getElementById('char-horn-girl').className = "canClick";
-    } else if (player.streak === 20) {
-      document.getElementById('char-princess-girl').className = "canClick";
-    }
-  };
-  // Controls player movement, restricts edges and checks for win condition
-  this.handleInput = function(input) {
-    if (input=='left' && player.x > 0) {
-      this.x -= 100;
-    } else if (input=='right' && player.x < 400) {
-      this.x += 100;
-    } else if (input=='up') {
-      this.y -= 85;
-      if (player.y < 50) {
-        this.playerSafe();
-      };
-    } else if (input=='down' && player.y < 390) {
-      this.y += 85;
-    };
-  }
 }
+
+PlayerClass.prototype.starting = function() {
+  player.x = 200;
+  player.y = 390;
+};
+// Updates game sprite on click if chosen character is unlocked
+PlayerClass.prototype.changeChar = function(evt){
+  if (evt.target.className === 'canClick') {
+      player.sprite = 'images/' + evt.target.id + '.png';
+  };
+}
+
+PlayerClass.prototype.render = function() {
+  ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+};
+// Handles player position, win count, and character unlocks upon
+// player reaching the water
+PlayerClass.prototype.playerSafe = function() {
+  player.starting();
+  player.wins+=1;
+  player.streak+=1;
+  document.getElementById('streakCount').innerHTML = player.streak;
+  document.getElementById('winCount').innerHTML = player.wins;
+  if (player.wins === 10) {
+    document.getElementById('char-cat-girl').className = "canClick";
+  } else if (player.wins === 15) {
+    document.getElementById('char-horn-girl').className = "canClick";
+  } else if (player.streak === 20) {
+    document.getElementById('char-princess-girl').className = "canClick";
+  }
+};
+// Controls player movement, restricts edges and checks for win condition
+PlayerClass.prototype.handleInput = function(input) {
+  if (input=='left' && player.x > 0) {
+    this.x -= 100;
+  } else if (input=='right' && player.x < 400) {
+    this.x += 100;
+  } else if (input=='up') {
+    this.y -= 85;
+    if (player.y < 50) {
+      this.playerSafe();
+    };
+  } else if (input=='down' && player.y < 390) {
+    this.y += 85;
+  };
+}
+
 
 // Array of active enemy list
 const allEnemies = [];
-const player = new PlayerClass;
-player.starting();
+const player = new PlayerClass (200,390);
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
